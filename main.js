@@ -1,28 +1,28 @@
 angular.module('roicalculatorApp', [])
-  .controller('TodoListController', function() {
-    var todoList = this;
-    todoList.todos = [
-      {text:'list of One Time Revenue Items', done:true},
+  .controller('OneTimeRevenueController', function() {
+    var oneTimeRev = this;
+    oneTimeRev.todos = [
+
       ];
 
-    todoList.addTodo = function() {
-      todoList.todos.push({text:todoList.todoText, done:false});
-      todoList.todoText = '';
+    oneTimeRev.addTodo = function() {
+      oneTimeRev.todos.push({text:oneTimeRev.todoText, done:false});
+      v.todoText = '';
     };
 
-    todoList.remaining = function() {
+    oneTimeRev.remaining = function() {
       var count = 0;
-      angular.forEach(todoList.todos, function(todo) {
+      angular.forEach(oneTimeRev.todos, function(todo) {
         count += todo.done ? 0 : 1;
       });
       return count;
     };
 
-    todoList.archive = function() {
-      var oldTodos = todoList.todos;
-      todoList.todos = [];
+    oneTimeRev.archive = function() {
+      var oldTodos = oneTimeRev.todos;
+      oneTimeRev.todos = [];
       angular.forEach(oldTodos, function(todo) {
-        if (!todo.done) todoList.todos.push(todo);
+        if (!todo.done) oneTimeRev.todos.push(todo);
       });
     };
   });

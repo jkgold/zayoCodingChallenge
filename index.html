@@ -6,19 +6,19 @@
   </head>
   <body>
     <h2>One Time Revenue Items</h2>
-    <div ng-controller="TodoListController as todoList">
+    <div ng-controller="OneTimeRevenueController as oneTimeRev">
 
 
       <ul class="unstyled">
-        <li ng-repeat="todo in todoList.todos">
+        <li ng-repeat="todo in oneTimeRev.todos">
           <label class="radio">
             <input type="radio" ng-model="todo.done">
             <span class="done-{{todo.done}}">{{todo.text}}</span>
           </label>
         </li>
       </ul>
-      <form ng-submit="todoList.addTodo()">
-        <input type="text" ng-model="todoList.todoText"  size="30"
+      <form ng-submit="oneTimeRev.addTodo()">
+        <input type="text" ng-model="oneTimeRev.todoText"  size="30"
                placeholder="Add Item">
         <input class="btn-primary" type="submit" value="add">
       </form>
