@@ -1,3 +1,4 @@
+
 angular.module('roicalculatorApp', [])
   .controller('OneTimeRevenueController', function() {
     var oneTimeRev = this;
@@ -6,7 +7,7 @@ angular.module('roicalculatorApp', [])
       ];
 
     oneTimeRev.addTodo = function() {
-      oneTimeRev.todos.push({text:oneTimeRev.todoText, done:false});
+      oneTimeRev.todos.push({text:oneTimeRev.todoText});
       v.todoText = '';
     };
 
