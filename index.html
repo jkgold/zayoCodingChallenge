@@ -1,27 +1,24 @@
-<!doctype html>
-<html ng-app="roicalculatorApp">
-  <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-
-  </head>
-  <body>
-    <h2>One Time Revenue Items</h2>
-    <div ng-controller="OneTimeRevenueController as oneTimeRev">
-
-
-      <ul class="unstyled">
-        <li ng-repeat="todo in oneTimeRev.todos">
-          <label class="radio">
-            <input type="radio" ng-model="todo.done">
-            <span class="done-{{todo.done}}">{{todo.text}}</span>
+<!DOCTYPE html>
+<html ng-app="roiCalculatorApp">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Roi Calculator</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body>
+<label>One Time Revenue Items</label>
+  <div ng-controller="OneTimeRevenueController">
+    <div class="container">
+      <ul>
+        <li ng-repeat"oneTime in oneTimeRev.oneTimes">
+          <label class="name">
+            <input type="name" ng-model="todo.done">
+            <span class="done-{{oneTime.done}}">{{oneTime.text}}</span>
           </label>
         </li>
       </ul>
-      <form ng-submit="oneTimeRev.addTodo()">
-        <input type="text" ng-model="oneTimeRev.todoText"  size="30"
-               placeholder="Add Item">
-        <input class="btn-primary" type="submit" value="add">
-      </form>
     </div>
-  </body>
+  </div>
+</body>
 </html>
