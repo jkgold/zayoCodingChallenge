@@ -1,24 +1,34 @@
 <!DOCTYPE html>
-<html ng-app="roiCalculatorApp">
+<!--defines angular app and sets the controller -->
+<html ng-app="ROICalculator" ng-controller="ROIController">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Roi Calculator</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <title>ROI Calculator</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!--stylesheetss -->
+  <link href="http://netdna.bootstrapcdn.com/bootswatch/3.1.1/yeti/bootstrap.min.css" rel="stylesheet" media="screen">
+  <!--Scripts -->
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular.min.js"></script>
+
 </head>
 <body>
-<label>One Time Revenue Items</label>
-  <div ng-controller="OneTimeRevenueController">
-    <div class="container">
-      <ul>
-        <li ng-repeat"oneTime in oneTimeRev.oneTimes">
-          <label class="name">
-            <input type="name" ng-model="todo.done">
-            <span class="done-{{oneTime.done}}">{{oneTime.text}}</span>
-          </label>
-        </li>
-      </ul>
+    <div class="jumbotron">
+      <div class="row">
+        <div class="col-sm-12">
+          <h1>ROI Calculator</h1>
+          <br><br>
+          <form role="form">
+            <label for="one-time-revenue">Enter One Time Revenue</label>
+            <input type="number" ng-model="enteredRevenueFromUser" class="form-control" placeholder="{{enteredRevenueFromUser}}">
+          </form>
+
+        </div>
+
+      </div>
     </div>
-  </div>
+
 </body>
 </html>
