@@ -12,6 +12,17 @@
   <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular.min.js"></script>
+<!-- Angular module -->
+
+  <script type="text/javascript">
+    var roiCalculator = angular.module('ROICalculator', []);
+    roiCalculator.controller('ROIController', function($scope){
+      $scope.userInput = function($scope) {
+        console.log("Hello World", $scope.enteredRevenueFromUser);
+      }
+
+    })
+  </script>
 
 </head>
 <body>
@@ -22,12 +33,35 @@
           <br><br>
           <form role="form">
             <label for="one-time-revenue">Enter One Time Revenue</label>
-            <input type="number" ng-model="enteredRevenueFromUser" class="form-control" placeholder="{{enteredRevenueFromUser}}">
+            <input type="number" ng-model="enteredRevenueFromUser" class="form-control" placeholder="Enter amount">
+            <button ng-click="userInput()">add</button>
           </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-7">
+          <br><br>
+          <table class="table table-border">
+            <thead>
+            <tr>
+              <th></th>
+              <th>One-Time Revenue</th>
+              <th></th>
+            </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>item 1</td>
+                <td>{{enteredRevenueFromUser}}</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
 
         </div>
 
       </div>
+
     </div>
 
 </body>
