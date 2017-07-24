@@ -19,10 +19,12 @@
     roiCalculator.controller('ROIController', ['$scope', function($scope){
       $scope.userInput = function() {
         console.log($scope.enteredRevenueFromUser);
-        return $scope.enteredRevenueFromUser;
+        var revenueArr = [];
+        revenueArr.push($scope.enteredRevenueFromUser)
+        console.log(revenueArr)
 
       }
-      $scope.userInput();
+      // $scope.userInput();
 
     }]);
   </script>
@@ -49,17 +51,18 @@
             <tr>
               <th></th>
               <th>One Time Revenue</th>
-              <th></th>
+              <th>Monthly</th>
             </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr ng-repeat="enteredRevenueFromUser in $scope.enteredRevenueFromUsers">
                 <td>item 1</td>
                 <td>{{enteredRevenueFromUser}}</td>
                 <td></td>
               </tr>
             </tbody>
           </table>
+          </div>
         </div>
       </div>
     </div>
