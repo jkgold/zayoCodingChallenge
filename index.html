@@ -20,12 +20,11 @@
       $scope.revenueArrs = []
       $scope.userInput = function() {
         console.log($scope.enteredRevenueFromUser);
-        // var revenueArr = [];
         $scope.revenueArrs.push($scope.enteredRevenueFromUser)
         console.log($scope.revenueArrs)
 
       }
-    
+
 
     }]);
   </script>
@@ -38,8 +37,14 @@
           <h1>ROI Calculator</h1>
           <br><br>
           <form role="form">
-            <label for="one-time-revenue">Enter One Time Revenue</label>
-            <input type="number" ng-model="enteredRevenueFromUser" class="form-control" placeholder="Enter amount">
+            <div>
+              <label for="one-time-revenue">Enter One Time Revenue</label>
+              <input type="number" ng-model="enteredRevenueFromUser" class="form-control" placeholder="Enter amount">
+            </div>
+            <div>
+              <label for="Enter Monthly Revenue">Enter Monthly Revenue</label>
+              <input type="number" ng-model="monthlyRevenueFromUser" class="form-control" placeholder="Enter amount">
+            </div>
             <button ng-click="userInput()">Add Revenue Item</button>
           </form>
         </div>
@@ -57,9 +62,12 @@
             </thead>
             <tbody>
               <tr ng-repeat="revenueArr in revenueArrs" >
-                <td>item 1</td>
                 <td>{{revenueArr}}</td>
-                <td></td>
+              </tr>
+            </tbody>
+            <tbody>
+              <tr ng-repeat="monthlyArr in monthlyArrs" >
+                <td>{{monthlyArr}}</td>
               </tr>
             </tbody>
           </table>
