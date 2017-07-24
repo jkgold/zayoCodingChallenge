@@ -17,14 +17,15 @@
   <script type="text/javascript">
     var roiCalculator = angular.module('ROICalculator', []);
     roiCalculator.controller('ROIController', ['$scope', function($scope){
+      $scope.revenueArrs = []
       $scope.userInput = function() {
         console.log($scope.enteredRevenueFromUser);
-        var revenueArr = [];
-        revenueArr.push($scope.enteredRevenueFromUser)
-        console.log(revenueArr)
+        // var revenueArr = [];
+        $scope.revenueArrs.push($scope.enteredRevenueFromUser)
+        console.log($scope.revenueArrs)
 
       }
-      // $scope.userInput();
+    
 
     }]);
   </script>
@@ -55,9 +56,9 @@
             </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="enteredRevenueFromUser in $scope.enteredRevenueFromUsers">
+              <tr ng-repeat="revenueArr in revenueArrs" >
                 <td>item 1</td>
-                <td>{{enteredRevenueFromUser}}</td>
+                <td>{{revenueArr}}</td>
                 <td></td>
               </tr>
             </tbody>
@@ -65,6 +66,5 @@
           </div>
         </div>
       </div>
-    </div>
 </body>
 </html>
