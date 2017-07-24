@@ -16,12 +16,12 @@
 
   <script type="text/javascript">
     var roiCalculator = angular.module('ROICalculator', []);
-    roiCalculator.controller('ROIController', function($scope){
-      $scope.userInput = function($scope) {
-        console.log("Hello World", $scope);
+    roiCalculator.controller('ROIController', ['$scope', function($scope){
+      $scope.userInput = function() {
+        console.log($scope.enteredRevenueFromUser);
       }
 
-    })
+    }]);
   </script>
 
 </head>
@@ -57,12 +57,8 @@
               </tr>
             </tbody>
           </table>
-
         </div>
-
       </div>
-
     </div>
-
 </body>
 </html>
