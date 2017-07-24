@@ -18,7 +18,7 @@
     var roiCalculator = angular.module('ROICalculator', []);
     roiCalculator.controller('ROIController', function($scope){
       $scope.userInput = function($scope) {
-        console.log("Hello World", $scope.enteredRevenueFromUser);
+        console.log("Hello World", $scope);
       }
 
     })
@@ -45,7 +45,7 @@
             <thead>
             <tr>
               <th></th>
-              <th>One-Time Revenue</th>
+              <th>One Time Revenue</th>
               <th></th>
             </tr>
             </thead>
