@@ -19,7 +19,10 @@
     roiCalculator.controller('ROIController', ['$scope', function($scope){
       $scope.userInput = function() {
         console.log($scope.enteredRevenueFromUser);
+        return $scope.enteredRevenueFromUser;
+
       }
+      $scope.userInput();
 
     }]);
   </script>
@@ -34,7 +37,7 @@
           <form role="form">
             <label for="one-time-revenue">Enter One Time Revenue</label>
             <input type="number" ng-model="enteredRevenueFromUser" class="form-control" placeholder="Enter amount">
-            <button ng-click="userInput()">add</button>
+            <button ng-click="userInput()">Add Revenue Item</button>
           </form>
         </div>
       </div>
