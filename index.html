@@ -18,13 +18,25 @@
     var roiCalculator = angular.module('ROICalculator', []);
     roiCalculator.controller('ROIController', ['$scope', function($scope){
       $scope.revenueArrs = []
-      $scope.userInput = function() {
-        console.log($scope.enteredRevenueFromUser);
+      $scope.monthlyRevenueArrs =[]
+      $scope.userInputOneTime = function() {
+        // console.log($scope.enteredRevenueFromUser);
         $scope.revenueArrs.push($scope.enteredRevenueFromUser)
         console.log($scope.revenueArrs)
-
+        
+        // console.log($scope.monthlyRevenueFromUser)
+        $scope.monthlyRevenueArrs.push($scope.monthlyRevenueFromUser)
+        // console.log($scope.monthlyRevenueArrs)
+        // for(var i =0; i<$scope.revenueArrs.length; i++){
+        //   $scope.totalOneTimeRevenue = $scope.revenueArrs.reduce();
+        //   console.log($scope.totalOneTimeRevenue);
+        // }
       }
 
+      // $scope.totalOneTimeRevenue = function() {
+      //   {return $scope.revenueArrs};
+      // }
+      //   console.log($scope.totalOneTimeRevenue())
 
     }]);
   </script>
@@ -45,7 +57,7 @@
               <label for="Enter Monthly Revenue">Enter Monthly Revenue</label>
               <input type="number" ng-model="monthlyRevenueFromUser" class="form-control" placeholder="Enter amount">
             </div>
-            <button ng-click="userInput()">Add Revenue Item</button>
+            <button ng-click="userInputOneTime()">Add Revenue Item</button>
           </form>
         </div>
       </div>
@@ -55,19 +67,22 @@
           <table class="table table-border">
             <thead>
             <tr>
-              <th></th>
               <th>One Time Revenue</th>
-              <th>Monthly</th>
             </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="revenueArr in revenueArrs" >
+              <tr ng-repeat="revenueArr in revenueArrs" "monthlyRevenueArr in monthlyRevenueArrs">
                 <td>{{revenueArr}}</td>
               </tr>
             </tbody>
+            <thead>
+              <tr>
+                <th>Monthly Revenue</th>
+              </tr>
+            </thead>
             <tbody>
-              <tr ng-repeat="monthlyArr in monthlyArrs" >
-                <td>{{monthlyArr}}</td>
+              <tr ng-repeat="monthlyRevenueArr in monthlyRevenueArrs" >
+                <td>{{monthlyRevenueArr}}</td>
               </tr>
             </tbody>
           </table>
