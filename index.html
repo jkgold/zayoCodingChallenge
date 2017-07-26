@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <!--defines angular app and sets the controller -->
 <html ng-app="ROICalculator" ng-controller="ROIController">
+<!-- <html> -->
 <head>
   <title>ROI Calculator</title>
   <meta charset="UTF-8">
@@ -12,45 +13,7 @@
   <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular.min.js"></script>
-<!-- Angular module -->
-
-  <script type="text/javascript">
-  (function() {
-    var ROICalculator = angular.module('ROICalculator.feed.filter', []);
-    // Sum of Revenues onetime and monthly
-    .filter('sumOfValue', function() {
-      return function(data, key) {
-        if (typeof(data) === "undefined"|| typeof(key) === 'undefined') {
-          return 0;
-      }
-        var sum = 0;
-        for (var i = data.length-1; i >=0; i--) {
-          sum+= parseInt(data[i]key);
-        }
-        return sum;
-      };
-
-    });
-    ROICalculator.controller('ROIController', ['$scope', function($scope){
-      $scope.revenueEnters = [];
-
-      $scope.addRevenueEnter =function() {
-        $scope.revenueEnters.push({
-          text: $scope.revenueEnterText,
-          once: $scope.revenueOneTime,
-          monthly: $scope.revenueMonthly,
-          done: false
-        });
-        //clear fields of Revenue
-        $scope.revenueEnterText = "";
-        $scope.revenueOneTime = "";
-        $scope.revenueMonthly = "";
-      };
-
-
-    }]);
-  })();
-  </script>
+  <script type="text/javascript" src="./main.js"></script>
 
 </head>
 <body>
