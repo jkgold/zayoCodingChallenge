@@ -35,7 +35,7 @@
               </li>
             </ul>
             <form class="form-group clearfix" ng-submit="addRevenueEnter()">
-              <input type="text" ng-model="revenueEnterText" class="form-control" placeholder="Enter New Revenue Item number" required>
+              <input type="text" ng-model="revenueEnterText" class="form-control" placeholder="Enter New Revenue Item" required>
               <input type="number" ng-model="revenueOneTime"  placeholder="Enter One Time Revenue" required>
               <input type="number" ng-model="revenueMonthly" placeholder="Enter Monthly Revenue" required>
               <input class="btn btn-primary btn-sm" type="submit" value="Add Revenue Item">
@@ -55,7 +55,7 @@
           </li>
         </ul>
         <form class="form-group clearfix" ng-submit="addExpenseEnter()">
-          <input type="text" ng-model="expenseEnterText" class="form-control" placeholder="Enter New Expense Item number" required>
+          <input type="text" ng-model="expenseEnterText" class="form-control" placeholder="Enter New Expense Item" required>
           <input type="number" ng-model="expenseOneTime"  placeholder="Enter One Time Expense" required>
           <input type="number" ng-model="expenseMonthly" placeholder="Enter Monthly Expense" required>
           <input class="btn btn-primary btn-sm" type="submit" value="Add Expense Item">
@@ -71,6 +71,18 @@
               <span ng-model="revenueMonthlyTotal">Monthly: {{revenueEnters | sumOfValue: 'monthly' | currency}}</span>
               <br>
               <span> Total:{{(revenueEnters | sumOfValue:'once') +(revenueEnters | sumOfValue: 'monthly') * 12 |currency }}</span>
+            </div>
+        </div>
+        <div class="col-md-4">
+          <div class="header">
+            <p class="title">Total Expenses</p>
+          </div>
+            <div class="result">
+              <span ng-model="expenseOneTotal">One-Time: {{expenseEnters | sumOfValue:'once' | currency}}</span>
+              <br>
+              <span ng-model="expenseMonthlyTotal">Monthly: {{expenseEnters | sumOfValue: 'monthly' | currency}}</span>
+              <br>
+              <span> Total:{{(expenseEnters | sumOfValue:'once') +(expenseEnters | sumOfValue: 'monthly') * 12 |currency }}</span>
             </div>
         </div>
       </div>
