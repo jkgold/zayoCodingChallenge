@@ -17,22 +17,35 @@
   <script type="text/javascript">
     var roiCalculator = angular.module('ROICalculator', []);
     roiCalculator.controller('ROIController', ['$scope', function($scope){
-      $scope.revenueArrs = []
-      $scope.monthlyRevenueArrs =[]
-      $scope.userInputOneTime = function() {
-        // console.log($scope.enteredRevenueFromUser);
-        $scope.revenueArrs.push($scope.enteredRevenueFromUser)
-        // console.log($scope.revenueArrs)
-        // console.log($scope.monthlyRevenueFromUser)
-        $scope.monthlyRevenueArrs.push($scope.monthlyRevenueFromUser)
-        // console.log($scope.monthlyRevenueArrs)
+      $scope.revenueEnters = [];
 
-        $scope.totalOneTimeRevenue = function() {
-          for(var i =0; i<$scope.revenueArrs.length; i++){
-            console.log($scope.revenueArrs);
-          }
-        }
+      $scope.addRevenueEnter =function() {
+        $scope.revenueEnters.push({
+          text: $scope.revenueEnterText,
+          once: $scope.revenueOneTime,
+          monthly: $scope.revenueMonthly,
+          done: false
+        });
+
+
+
       }
+      // $scope.revenueArrs = []
+      // $scope.monthlyRevenueArrs =[]
+      // $scope.userInputOneTime = function() {
+      //   // console.log($scope.enteredRevenueFromUser);
+      //   $scope.revenueArrs.push($scope.enteredRevenueFromUser)
+      //   // console.log($scope.revenueArrs)
+      //   // console.log($scope.monthlyRevenueFromUser)
+      //   $scope.monthlyRevenueArrs.push($scope.monthlyRevenueFromUser)
+      //   // console.log($scope.monthlyRevenueArrs)
+      //
+      //   $scope.totalOneTimeRevenue = function() {
+      //     for(var i =0; i<$scope.revenueArrs.length; i++){
+      //       console.log($scope.revenueArrs);
+      //     }
+      //   }
+      // }
 
       // $scope.totalOneTimeRevenue = function() {
       //   {return $scope.revenueArrs};
@@ -57,13 +70,15 @@
             <ul class="unstyled">
               <li ng-repeat="revenueEnter in revenueEnters ">
                 <span class="done-{{revenueEnter}}">{{revenueEnter.text}}</span>
-                </span class="done-{{revenueEnter.done}}">{{revenueEnter.once |currency}}</span>
+              </span class="done-{{revenueEnter.done}}">{{revenueEnter.monthly |currency}}</span>
+              </span class="done-{{revenueEnter.done}}">{{revenueEnter.once |currency}}</span>
               </li>
             </ul>
             <form class="form-group clearfix" ng-submit="addRevenueEnter()">
-              <input type="text" ng-model="revenueEnter.text" class="form-control" placeholder="Enter  New Revenue" required>
+              <input type="text" ng-model="revenueEnterText" class="form-control" placeholder="Enter  New Revenue" required>
               <input type="number" ng-model="revenueOneTime"  placeholder="Enter One Time Revenue" required>
               <input type="number" ng-model="revenueMonthly" placeholder="Enter Monthly Revenue" required>
+              <input class="btn btn-primary btn-sm" type="submit" value="Add Revenue Item">
             </form>
             </div>
           </div>
