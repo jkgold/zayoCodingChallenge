@@ -15,21 +15,23 @@
 <!-- Angular module -->
 
   <script type="text/javascript">
-    var roiCalculator = angular.module('ROICalculator', []);
+  (function() {
+    var ROICalculator = angular.module('ROICalculator.feed.filter', []);
     // Sum of Revenues onetime and monthly
-    .filter('sumOfValue', ['$filter', function() {
+    .filter('sumOfValue', function() {
       return function(data, key) {
-        if (angular.isUndefined(data) || angular.isUndefined(key))
-        return 0;
-        var sum = 0;
-
-        angular.forEach(data, function(v,k) {
-          sum = sum + parseInt(v[key]);
-        });
-        return sum;
+        if (typeof(data) === "undefined"|| typeof(key) === 'undefined') {
+          return 0;
       }
-    }]);
-    roiCalculator.controller('ROIController', ['$scope', function($scope){
+        var sum = 0;
+        for (var i = data.length-1; i >=0; i--) {
+          sum+= parseInt(data[i]key);
+        }
+        return sum;
+      };
+
+    });
+    ROICalculator.controller('ROIController', ['$scope', function($scope){
       $scope.revenueEnters = [];
 
       $scope.addRevenueEnter =function() {
@@ -47,6 +49,7 @@
 
 
     }]);
+  })();
   </script>
 
 </head>
