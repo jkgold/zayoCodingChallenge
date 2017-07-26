@@ -16,6 +16,19 @@
 
   <script type="text/javascript">
     var roiCalculator = angular.module('ROICalculator', []);
+    // Sum of Revenues onetime and monthly
+    .filter('sumOfValue', ['$filter', function() {
+      return function(data, key) {
+        if (angular.isUndefined(data) || angular.isUndefined(key))
+        return 0;
+        var sum = 0;
+
+        angular.forEach(data, function(v,k) {
+          sum = sum + parseInt(v[key]);
+        });
+        return sum;
+      }
+    }]);
     roiCalculator.controller('ROIController', ['$scope', function($scope){
       $scope.revenueEnters = [];
 
@@ -29,43 +42,19 @@
         //clear fields of Revenue
         $scope.revenueEnterText = "";
         $scope.revenueOneTime = "";
-        $scope.revenueMonthly ="";
-      // };
+        $scope.revenueMonthly = "";
+      };
 
-
-
-      }
-      // $scope.revenueArrs = []
-      // $scope.monthlyRevenueArrs =[]
-      // $scope.userInputOneTime = function() {
-      //   // console.log($scope.enteredRevenueFromUser);
-      //   $scope.revenueArrs.push($scope.enteredRevenueFromUser)
-      //   // console.log($scope.revenueArrs)
-      //   // console.log($scope.monthlyRevenueFromUser)
-      //   $scope.monthlyRevenueArrs.push($scope.monthlyRevenueFromUser)
-      //   // console.log($scope.monthlyRevenueArrs)
-      //
-      //   $scope.totalOneTimeRevenue = function() {
-      //     for(var i =0; i<$scope.revenueArrs.length; i++){
-      //       console.log($scope.revenueArrs);
-      //     }
-      //   }
-      // }
-
-      // $scope.totalOneTimeRevenue = function() {
-      //   {return $scope.revenueArrs};
-      // }
-      //   console.log($scope.totalOneTimeRevenue())
 
     }]);
   </script>
 
 </head>
 <body>
-    <div class="jumbotron">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
+  <div class="jumbotron">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
             <h1>ROI Calculator</h1>
             <br><br>
           <div class="revenue-header">
@@ -76,60 +65,31 @@
               <li ng-repeat="revenueEnter in revenueEnters ">
                 <span class="done-{{revenueEnter}}">{{revenueEnter.text}}</span>
               </span class="done-{{revenueEnter.done}}">{{revenueEnter.monthly |currency}}</span>
-              </span class="done-{{revenueEnter.done}}">{{revenueEnter.once |currency}}</span>
+              </span class="done-{{revenueEnter.done}}">{{revenueEnter.once | currency}}</span>
               </li>
             </ul>
             <form class="form-group clearfix" ng-submit="addRevenueEnter()">
-              <input type="text" ng-model="revenueEnterText" class="form-control" placeholder="Enter  New Revenue" required>
+              <input type="text" ng-model="revenueEnterText" class="form-control" placeholder="Enter New Revenue Item number" required>
               <input type="number" ng-model="revenueOneTime"  placeholder="Enter One Time Revenue" required>
               <input type="number" ng-model="revenueMonthly" placeholder="Enter Monthly Revenue" required>
               <input class="btn btn-primary btn-sm" type="submit" value="Add Revenue Item">
             </form>
-            </div>
           </div>
+        </div>
+        <div class="col-md-4">
+          <div class="header">
+            <p class="title">Total Revenue</p>
+          </div>
+            <div class="result">
+              <span ng-model="revenueOneTotal">One-Time: {{revenueEnters | sumOfValue:'once' | currency}}</span>
+              <br>
+              <span ng-model="revenueMonthlyTotal">Monthly: {{revenueEnters | sumOfValue: 'monthly' | currency}}</span>
+              <br>
+              <span> Total:{{(revenueEnters | sumOfValue:'once') +(revenueEnters | sumOfValue: 'monthly') * 12 |currency }}</span>
+            </div>
         </div>
       </div>
     </div>
-
-          <!-- <form role="form">
-                <label for="one-time-revenue">Enter One Time Revenue</label>
-
-            <div>
-              <label for="Enter Monthly Revenue">Enter Monthly Revenue</label>
-              <input type="number" ng-model="monthlyRevenueFromUser" class="form-control" placeholder="Enter amount">
-            </div>
-            <button ng-click="userInputOneTime()">Add Revenue Item</button>
-          </form>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-7">
-          <br><br>
-          <table class="table table-border">
-            <thead>
-            <tr>
-              <th>One Time Revenue</th>
-            </tr>
-            </thead>
-            <tbody>
-              <tr ng-repeat="revenueArr in revenueArrs track by $index" >
-                <td>{{revenueArr}}</td>
-              </tr>
-            </tbody>
-            <thead>
-              <tr>
-                <th>Monthly Revenue</th>
-              </tr>
-            </thead>
-            <tbody>
-
-                <td>{{monthlyRevenueArr}}</td>
-              </tr>
-            </tbody>
-          </table>
-            </div>
-          </div>
-        </div>
-      </div> -->
+  </div>
 </body>
 </html>
