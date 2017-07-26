@@ -17,7 +17,8 @@
 
   ROICalculator.controller('ROIController', ['$scope', function($scope){
     $scope.revenueEnters = [];
-
+    $scope.expenseEnters =[];
+    //adding Revenue to DOM
     $scope.addRevenueEnter =function() {
       $scope.revenueEnters.push({
         text: $scope.revenueEnterText,
@@ -29,6 +30,19 @@
       $scope.revenueEnterText = "";
       $scope.revenueOneTime = "";
       $scope.revenueMonthly = "";
+    };
+    //adding Expense to DOM
+    $scope.addExpenseEnter =function() {
+      $scope.expenseEnters.push({
+        text: $scope.expenseEnterText,
+        once: $scope.expenseOneTime,
+        monthly: $scope.expenseMonthly,
+        done: false
+      });
+      //clear fields of Expense
+      $scope.expenseEnterText = "";
+      $scope.expenseOneTime = "";
+      $scope.expenseMonthly = "";
     };
 
 

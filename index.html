@@ -42,6 +42,25 @@
             </form>
           </div>
         </div>
+        <br><br>
+      <div class="expense-header">
+        <p class="title">Enter One Time Expense and Monthly Expenses</p>
+      </div>
+      <div class="list">
+        <ul class="unstyled">
+          <li ng-repeat="expenseEnter in expenseEnters ">
+            <span class="done-{{expenseEnter}}">{{expenseEnter.text}}</span>
+          </span class="done-{{expenseEnter.done}}">{{expenseEnter.monthly |currency}}</span>
+        </span class="done-{{expenseEnter.done}}">{{expenseEnter.once | currency}}</span>
+          </li>
+        </ul>
+        <form class="form-group clearfix" ng-submit="addExpenseEnter()">
+          <input type="text" ng-model="expenseEnterText" class="form-control" placeholder="Enter New Expense Item number" required>
+          <input type="number" ng-model="expenseOneTime"  placeholder="Enter One Time Expense" required>
+          <input type="number" ng-model="expenseMonthly" placeholder="Enter Monthly Expense" required>
+          <input class="btn btn-primary btn-sm" type="submit" value="Add Expense Item">
+        </form>
+      </div>
         <div class="col-md-4">
           <div class="header">
             <p class="title">Total Revenue</p>
