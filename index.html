@@ -23,6 +23,7 @@
         <div class="col-sm-12">
             <h1>ROI Calculator</h1>
             <br><br>
+            <!--Revenue -->
           <div class="revenue-header">
             <p class="title">Enter One Time Revenue and Monthly Revenue</p>
           </div>
@@ -73,6 +74,7 @@
               <span> Total:{{(revenueEnters | sumOfValue:'once') +(revenueEnters | sumOfValue: 'monthly') * 12 |currency }}</span>
             </div>
         </div>
+        <!-- Expense--->
         <div class="col-md-4">
           <div class="header">
             <p class="title">Total Expenses</p>
@@ -84,6 +86,20 @@
               <br>
               <span> Total:{{(expenseEnters | sumOfValue:'once') +(expenseEnters | sumOfValue: 'monthly') * 12 |currency }}</span>
             </div>
+        </div>
+      </div>
+      <!--Starting Contribution Portion-->
+      <div class="row">
+        <div class="col-md-4">
+          <div class="header">
+            <p class="title">Contributions</p>
+          </div>
+          <div class="results">
+            <span>Contribution Profit Monthly: {{(revenueEnters | sumOfValue:'monthly') - (expenseEnters | sumOfValue:'monthly') | currency}}</span>
+            <span>Contribution Profit Total: {{((revenueEnters | sumOfValue:'once') + (revenueEnters | sumOfValue:'monthly') * 12) - ((expenseEnters| sumOfValue:'once') + (expenseEnters | sumOfValue:'monthly') * 12)  | currency }}</span>
+           <span>Contribution Margin: {{(((revenueEnters |sumOfValue:'once') +(revenueEnters | sumOfValue:'monthly') * 12)) - ((expenseEnters | sumOfValue:'once')) + (expenseEnters | sumOfValue:'monthly') * 12 /(((expenseEnters | sumOfValue:'once') + (expenseEnters | sumOfValue:'monthly') *12)) }} </span>
+            <!-- <span>Capital ROI (Months):  {{((expenseEnters | sumOfValue:'once') - (revenueEnters  | sumOfValue:'once')) / ((revenueEnters  | sumOfValue:'monthly') - (expenseEnters | sumOfValue:'monthly')) | number:1 }}</span> -->
+          </div>
         </div>
       </div>
     </div>
