@@ -28,6 +28,7 @@
             <p class="title">Enter One Time Revenue and Monthly Revenue</p>
           </div>
           <div class="list">
+              [ <a href="" ng-click="deleteRv()">Delete Item</a> <i class="fa fa-check-square" aria-hidden="true"></i> ]
             <ul class="unstyled">
               <li ng-repeat="revenueEnter in revenueEnters ">
                 <span class="done-{{revenueEnter}}">{{revenueEnter.text}}</span>
@@ -48,6 +49,7 @@
         <p class="title">Enter One Time Expense and Monthly Expenses</p>
       </div>
       <div class="list">
+          [ <a href="" ng-click="deleteRv()">Delete Item</a> <i class="fa fa-check-square" aria-hidden="true"></i> ]
         <ul class="unstyled">
           <li ng-repeat="expenseEnter in expenseEnters ">
             <span class="done-{{expenseEnter}}">{{expenseEnter.text}}</span>
