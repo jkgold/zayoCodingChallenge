@@ -97,9 +97,9 @@
           <div class="results">
             <span>Contribution Profit Monthly: {{(revenueEnters | sumOfValue:'monthly') - (expenseEnters | sumOfValue:'monthly') | currency}}</span>
              <span>Contribution Profit Total: {{((revenueEnters | sumOfValue:'once') + (revenueEnters | sumOfValue:'monthly') * 12) - ((expenseEnters| sumOfValue:'once') + (expenseEnters | sumOfValue:'monthly') * 12)  | currency }}</span>
-             <span>Contribution Margin: {{(((revenueEnters | sumOfValue:'once') + (revenueEnters | sumOfValue:'monthly') * 12) - ((expenseEnters | sumOfValue:'once') + (expenseEnters | sumOfValue:'monthly') * 12)) / (((revenueEnters | sumOfValue:'once') + (revenueEnters | sumOfValue: 'monthly') * 12)) | percentage:1 }}</span>
-           <!-- <span>Contribution Margin: {{(((revenueEnters | sumOfValue:'once') + (revenueEnters | sumOfValue:'monthly') * 12) - ((expenseEnters| sumOfValue:'once') + (expenseEnters | sumOfValue:'monthly') * 12)  | currency) / (revenueEnters | sumOfValue:'once') +(revenueEnters | sumOfValue: 'monthly') * 12 |currency }} </span> -->
-            <!-- <span>Capital ROI (Months):  {{((expenseEnters | sumOfValue:'once') - (revenueEnters  | sumOfValue:'once')) / ((revenueEnters  | sumOfValue:'monthly') - (expenseEnters | sumOfValue:'monthly')) | number:1 }}</span> -->
+             <span>Contribution Margin: {{(((revenueEnters | sumOfValue:'once') + (revenueEnters | sumOfValue:'monthly') * 12) - ((expenseEnters | sumOfValue:'once') + (expenseEnters | sumOfValue:'monthly') * 12)) / (((revenueEnters | sumOfValue:'once') + (revenueEnters | sumOfValue: 'monthly') * 12)) | percentage:1 }}</span><br>
+            <span>Capital ROI (Months): {{((expenseEnters| sumOfValue:'once') - (revenueEnters | sumOfValue:'once')) / ((revenueEnters | sumOfValue:'monthly') - (expenseEnters | sumOfValue:'monthly')) | number:1  }}</span>
+
           </div>
         </div>
       </div>
