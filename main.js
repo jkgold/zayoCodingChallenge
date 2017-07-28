@@ -39,16 +39,16 @@
     };
     //Delete Revenue
 
-    $scope.deleteRenvenue = function() {
-   var oldrevenueEnters;
-   oldrevenueEnters = $scope.revenueEnters;
-   $scope.revenueEnters = [];
-   angular.forEach(oldItems, function(revenueEnters) {
-     if (!revenueEnter.done) {
-       return $scope.revenueEnters.push(revenueEnter);
-     }
-   });
- };
+    $scope.deleteRv = function() {
+    var oldItems;
+    oldItems = $scope.revenueEnters;
+    $scope.revenueEnters = [];
+    angular.forEach(oldItems, function(revenueEnters) {
+      if (!revenueEnter.done) {
+        return $scope.revenueEnters.push(revenueEnter);
+      }
+    });
+  };
     //adding Expense to DOM
     $scope.addExpenseEnter =function() {
       $scope.expenseEnters.push({
