@@ -44,7 +44,7 @@
     oldItems = $scope.revenueEnters;
     $scope.revenueEnters = [];
     angular.forEach(oldItems, function(revenueEnters) {
-      if (!revenueEnter.done) {
+      if (!revenueEnters.done) {
         return $scope.revenueEnters.push(revenueEnter);
       }
     });
